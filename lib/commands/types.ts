@@ -6,9 +6,13 @@ import {Page} from '../types';
 
 export type Direction = 'up' | 'down' | 'left' | 'right';
 
+/**
+ * Application state code.
+ * @see https://developer.apple.com/documentation/xctest/xcuiapplicationstate?language=objc
+ */
 export enum AppState {
   /**
-   * The application’s current state is not known.
+   * The application's current state is not known.
    */
   XCUIApplicationStateUnknown = 0,
   /**
@@ -213,7 +217,7 @@ export interface Context {
    */
   id: string;
   /**
-   * The title associated witht he webview content
+   * The title associated with the webview content
    */
   title?: string;
   /**
@@ -237,4 +241,38 @@ export interface View {
   title?: string;
   url?: string;
   bundleId?: string;
+}
+
+/**
+ *  Page tree source representation formats.
+ *
+ *  - `xml`: Generates the output similar to what the `getPageSource` standard API returns.
+ *  - `description`: This is how XCTest "sees" the page internally and is the same string as the [`debugDescription`](https://developer.apple.com/documentation/xctest/xcuielement/1500909-debugdescription?language=objc) API would return for the root application element.
+ *     This source representation format is useful for debugging purposes and is the fastest
+ *     one to fetch.
+ * - `json`: Similar to `xml`, but the tree hierarchy is represented as JSON elements.
+ */
+export type SourceFormat = 'xml' | 'json' | 'description';
+
+export type AppInstallStrategy = 'serial' | 'parallel' | 'ios-deploy';
+
+export interface ProfileManifest {
+  Description: string;
+  IsActive: boolean;
+}
+
+export interface ProfileMetadata {
+  PayloadDescription: string,
+  PayloadDisplayName: string,
+  PayloadOrganization: string,
+  PayloadRemovalDisallowed: boolean,
+  PayloadUUID: string,
+  PayloadVersion: number
+}
+
+export interface CertificateList {
+  OrderedIdentifiers: string[];
+  ProfileManifest: Record<string, ProfileManifest>,
+  ProfileMetadata: Record<string, ProfileMetadata>,
+  Status: 'Acknowledged'
 }
