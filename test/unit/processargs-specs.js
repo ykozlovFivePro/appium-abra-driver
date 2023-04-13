@@ -59,10 +59,7 @@ describe('process args', function () {
       };
       driver.validateDesiredCaps(desiredWithProArgsObject);
       await driver.startWdaSession(desiredWithProArgsObject.bundleId, desiredWithProArgsObject.processArguments);
-      proxySpy.calledOnce.should.be.true;
-      proxySpy.firstCall.args[0].should.eql('/session');
-      proxySpy.firstCall.args[1].should.eql('POST');
-      proxySpy.firstCall.args[2].should.eql(desired);
+      proxySpy.should.have.been.calledOnceWith('/session', 'POST', desired);
     });
   });
 
@@ -78,10 +75,7 @@ describe('process args', function () {
       };
       driver.validateDesiredCaps(desiredWithProArgsString);
       await driver.startWdaSession(desiredWithProArgsString.bundleId, desiredWithProArgsString.processArguments);
-      proxySpy.calledOnce.should.be.true;
-      proxySpy.firstCall.args[0].should.eql('/session');
-      proxySpy.firstCall.args[1].should.eql('POST');
-      proxySpy.firstCall.args[2].should.eql(desired);
+      proxySpy.should.have.been.calledOnceWith('/session', 'POST', desired);
     });
   });
 });

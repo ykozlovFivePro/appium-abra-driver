@@ -55,10 +55,7 @@ describe('language and locale', function () {
       let proxySpy = sinon.stub(driver, 'proxyCommand');
       driver.validateDesiredCaps(desiredCapabilities);
       await driver.startWdaSession(desiredCapabilities.bundleId, desiredCapabilities.processArguments);
-      proxySpy.calledOnce.should.be.true;
-      proxySpy.firstCall.args[0].should.eql('/session');
-      proxySpy.firstCall.args[1].should.eql('POST');
-      proxySpy.firstCall.args[2].should.eql(expectedWDACapabilities);
+      proxySpy.should.have.been.calledOnceWith('/session', 'POST', expectedWDACapabilities);
     });
   });
 
@@ -107,7 +104,7 @@ describe('language and locale', function () {
       proxySpy.calledOnce.should.be.true;
       proxySpy.firstCall.args[0].should.eql('/session');
       proxySpy.firstCall.args[1].should.eql('POST');
-      proxySpy.firstCall.args[2].should.eql(expectedWDACapabilities);
+      /** @type {any} */(proxySpy.firstCall.args[2]).should.eql(expectedWDACapabilities);
     });
   });
 });
