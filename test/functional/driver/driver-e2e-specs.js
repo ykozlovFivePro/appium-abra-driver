@@ -16,7 +16,7 @@ import {
 import {translateDeviceName} from '../../../lib/utils';
 import axios from 'axios';
 
-const SIM_DEVICE_NAME = 'xcuitestDriverTest';
+const SIM_DEVICE_NAME = 'AbraXCUITestDriverTest';
 
 chai.should();
 chai.use(chaiAsPromised);
@@ -35,7 +35,7 @@ async function getNumSims() {
   return (await simctl.getDevices())[PLATFORM_VERSION].length;
 }
 
-describe('XCUITestDriver', function () {
+describe('AbraXCUITestDriver', function () {
   this.timeout(MOCHA_TIMEOUT);
 
   let baseCaps;

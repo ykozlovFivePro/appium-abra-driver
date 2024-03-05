@@ -1,9 +1,9 @@
-import type {AnyCase, Element, HTTPHeaders, Location, Size, StringRecord} from '@appium/types';
+import type { AnyCase, Element, HTTPHeaders, Location, Size, StringRecord } from '@appium/types';
 import type B from 'bluebird';
-import type {EventEmitter} from 'node:events';
-import type {LiteralUnion, SetOptional, SetRequired} from 'type-fest';
-import type {Page} from '../types';
-import type {AuthorizationStatus, BatteryState, ThermalState} from './enum';
+import type { EventEmitter } from 'node:events';
+import type { LiteralUnion, SetOptional, SetRequired } from 'type-fest';
+import type { Page } from '../types';
+import type { AuthorizationStatus, BatteryState, ThermalState } from './enum';
 
 export type Direction = 'up' | 'down' | 'left' | 'right';
 
@@ -192,7 +192,7 @@ export interface Context {
 }
 
 export type ViewContext<S extends string = string> = Context &
-  (S extends NativeAppId ? {view: SetOptional<View, 'id'>} : {view: View});
+  (S extends NativeAppId ? { view: SetOptional<View, 'id'> } : { view: View });
 
 export type NativeAppId = 'NATIVE_APP';
 
@@ -356,7 +356,7 @@ export interface WDALocationInfo extends LocationWithAltitude {
 }
 
 /**
- * Payload for {@linkcode XCUITestDriver.mobilePushNotification}.
+ * Payload for {@linkcode AbraXCUITestDriver.mobilePushNotification}.
  *
  * Check the output of `xcrun simctl help push` command for more details.
  */

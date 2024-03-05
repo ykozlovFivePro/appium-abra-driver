@@ -1,12 +1,12 @@
 import sinon from 'sinon';
 import chai from 'chai';
-import XCUITestDriver from '../../lib/driver';
+import AbraXCUITestDriver from '../../lib/driver';
 
 chai.should();
 
 describe('process args', function () {
   const BUNDLE_ID = 'com.test.app';
-  let driver = new XCUITestDriver();
+  let driver = new AbraXCUITestDriver();
   driver.opts.platformVersion = '10.3';
   let proxySpy = sinon.stub(driver, 'proxyCommand');
   const DEFAULT_CAPS = {

@@ -109,7 +109,7 @@ jobs:
         echo "{\"reporterEnabled\": \"spec, xunit\", \"xunitReporterOptions\": {\"output\": \"$RESULTS_XML\"}}" > reporter_config.json
         ARGS=("./test/functional/${{ matrix.e2eRoot }}" --exit --timeout 10m --reporter mocha-multi-reporters --reporter-options configFile=reporter_config.json)
         if [[ "${{ matrix.e2eRoot }}" == basic ]]; then
-          ARGS+=(--grep XCUITestDriver)
+          ARGS+=(--grep AbraXCUITestDriver)
         fi
         if ! npx mocha "${ARGS[@]}"; then
           tests=$(cat "$RESULTS_XML" | xq --xpath '//testsuite/@tests')

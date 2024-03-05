@@ -1,4 +1,4 @@
-import {XCUITestDriver} from './lib/driver';
+import {AbraXCUITestDriver} from './lib/driver';
 
-export {XCUITestDriver};
-export default XCUITestDriver;
+export {AbraXCUITestDriver as AbraXCUITestDriver};
+export default AbraXCUITestDriver;

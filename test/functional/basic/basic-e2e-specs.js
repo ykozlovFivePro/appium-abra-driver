@@ -13,7 +13,7 @@ chai.should();
 chai.use(chaiAsPromised);
 chai.use(chaiSubset);
 
-describe('XCUITestDriver - basics -', function () {
+describe('AbraXCUITestDriver - basics -', function () {
   this.timeout(MOCHA_TIMEOUT);
 
   let driver;

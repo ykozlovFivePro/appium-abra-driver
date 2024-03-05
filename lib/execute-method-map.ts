@@ -1,10 +1,10 @@
-import {ExecuteMethodMap} from '@appium/types';
-import {XCUITestDriver} from './driver';
+import { ExecuteMethodMap } from '@appium/types';
+import { AbraXCUITestDriver } from './driver';
 
 export const executeMethodMap = {
   'mobile: tap': {
     command: 'mobileTap',
-    params: {required: ['x', 'y'], optional: ['elementId']},
+    params: { required: ['x', 'y'], optional: ['elementId'] },
   },
   'mobile: scroll': {
     command: 'mobileScroll',
@@ -518,6 +518,6 @@ export const executeMethodMap = {
   },
   'mobile: backgroundApp': {
     command: 'background',
-    params: {optional: ['seconds']},
+    params: { optional: ['seconds'] },
   },
-} as const satisfies ExecuteMethodMap<XCUITestDriver>;
+} as const satisfies ExecuteMethodMap<AbraXCUITestDriver>;

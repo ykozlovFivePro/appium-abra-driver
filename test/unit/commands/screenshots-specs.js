@@ -1,5 +1,5 @@
 import sinon from 'sinon';
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 import Simctl from 'node-simctl';
 
 describe('screenshots commands', function () {
@@ -11,7 +11,7 @@ describe('screenshots commands', function () {
     'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
 
   beforeEach(function () {
-    driver = new XCUITestDriver();
+    driver = new AbraXCUITestDriver();
     simctl = new Simctl();
     driver.opts = {
       // @ts-expect-error do not put random stuff on opts object

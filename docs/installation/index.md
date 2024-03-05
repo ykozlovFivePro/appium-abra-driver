@@ -29,7 +29,7 @@ appium
 You should see some output that includes a line like this:
 
 ```
-[Appium] XCUITestDriver has been successfully loaded in 0.789s
+[Appium] AbraXCUITestDriver has been successfully loaded in 0.789s
 ```
 
 Once you have installed the driver and confirmed it works, you should continue with

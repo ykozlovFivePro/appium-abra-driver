@@ -12,7 +12,7 @@ chai.use(chaiAsPromised);
 
 const BTN_OK_CNCL = 'Okay / Cancel';
 
-describe('XCUITestDriver - gestures', function () {
+describe('AbraXCUITestDriver - gestures', function () {
   this.timeout(MOCHA_TIMEOUT);
 
   let driver;

@@ -10,7 +10,7 @@ import {util} from 'appium/support';
 chai.should();
 chai.use(chaiAsPromised);
 
-describe('XCUITestDriver - elements -', function () {
+describe('AbraXCUITestDriver - elements -', function () {
   this.timeout(MOCHA_TIMEOUT);
 
   let driver;

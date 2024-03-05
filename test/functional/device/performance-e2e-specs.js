@@ -7,7 +7,7 @@ import {initSession, deleteSession, hasDefaultPrebuiltWDA, MOCHA_TIMEOUT} from '
 chai.should();
 chai.use(chaiAsPromised);
 
-describe('XCUITestDriver - performance', function () {
+describe('AbraXCUITestDriver - performance', function () {
   this.timeout(MOCHA_TIMEOUT);
   const profileName = 'Time Profiler';
 

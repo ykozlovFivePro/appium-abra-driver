@@ -22,7 +22,7 @@ const MOCHA_RETRIES = process.env.CI ? 3 : 1;
 
 // face id tests need to be on sims and need accessibility turned on
 if (!process.env.CI) {
-  describe('XCUITestDriver - faceID -', function () {
+  describe('AbraXCUITestDriver - faceID -', function () {
     this.timeout(MOCHA_TIMEOUT * 2);
     this.retries(MOCHA_RETRIES);
     let driver;

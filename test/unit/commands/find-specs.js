@@ -1,8 +1,8 @@
 import sinon from 'sinon';
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 
 describe('general commands', function () {
-  const driver = new XCUITestDriver();
+  const driver = new AbraXCUITestDriver();
   const proxySpy = sinon.stub(driver, 'proxyCommand');
 
   afterEach(function () {

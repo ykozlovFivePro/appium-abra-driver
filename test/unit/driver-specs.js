@@ -7,7 +7,7 @@ import {createSandbox} from 'sinon';
 import sinonChai from 'sinon-chai';
 import * as appUtils from '../../lib/app-utils';
 import cmds from '../../lib/commands';
-import XCUITestDriver from '../../lib/driver';
+import AbraXCUITestDriver from '../../lib/driver';
 import * as utils from '../../lib/utils';
 import {MOCHA_LONG_TIMEOUT} from './helpers';
 chai.should();
@@ -25,7 +25,7 @@ const caps = {
   },
 };
 
-describe('XCUITestDriver', function () {
+describe('AbraXCUITestDriver', function () {
   /** @type {sinon.SinonSandbox} */
   let sandbox;
   beforeEach(function () {
@@ -40,7 +40,7 @@ describe('XCUITestDriver', function () {
     let driver;
 
     beforeEach(function () {
-      driver = new XCUITestDriver();
+      driver = new AbraXCUITestDriver();
     });
 
     it('real device', function () {
@@ -63,13 +63,13 @@ describe('XCUITestDriver', function () {
 
   describe('driver commands', function () {
     describe('status', function () {
-      /** @type {XCUITestDriver} */
+      /** @type {AbraXCUITestDriver} */
       let driver;
       /** @type {import('sinon').SinonStubbedMember<typeof JWProxy.prototype.command>} */
       let jwproxyCommandSpy;
 
       beforeEach(function () {
-        driver = new XCUITestDriver();
+        driver = new AbraXCUITestDriver();
 
         // fake the proxy to WDA
         const jwproxy = new JWProxy();
@@ -99,7 +99,7 @@ describe('XCUITestDriver', function () {
       let realDevice;
 
       beforeEach(function () {
-        driver = new XCUITestDriver();
+        driver = new AbraXCUITestDriver();
         device = {
           shutdown: _.noop,
           isRunning() {
@@ -233,12 +233,12 @@ describe('XCUITestDriver', function () {
     });
 
     describe('execute', function () {
-      /** @type {XCUITestDriver} */
+      /** @type {AbraXCUITestDriver} */
       let driver;
       const deviceInfoResponse = {some: 'thing'};
 
       beforeEach(function () {
-        driver = new XCUITestDriver();
+        driver = new AbraXCUITestDriver();
         const jwproxy = new JWProxy();
         sandbox.stub(jwproxy, 'command').resolves(deviceInfoResponse);
         driver.wda = {
@@ -263,11 +263,11 @@ describe('XCUITestDriver', function () {
   });
 
   describe('installOtherApps', function () {
-    /** @type {XCUITestDriver} */
+    /** @type {AbraXCUITestDriver} */
     let driver;
 
     beforeEach(function () {
-      driver = new XCUITestDriver();
+      driver = new AbraXCUITestDriver();
     });
 
     it('should install multiple apps from otherApps as string on on real devices', async function () {
@@ -387,26 +387,26 @@ describe('XCUITestDriver', function () {
     ]);
 
     /**
-     * Lookup of prop name to method.  Initially, this contains all methods in `XCUITestDriver.prototype`
+     * Lookup of prop name to method.  Initially, this contains all methods in `AbraXCUITestDriver.prototype`
      * Used to check if:
      * - a mixin method overwrites a method in the driver prototype
      * - a mixin method overwrites a method from another mixin
      * @type {Map<string,string>}
      */
     const foundProps = new Map(
-      Object.getOwnPropertyNames(XCUITestDriver.prototype).map((propName) => [
+      Object.getOwnPropertyNames(AbraXCUITestDriver.prototype).map((propName) => [
         propName,
-        XCUITestDriver.prototype[propName],
+        AbraXCUITestDriver.prototype[propName],
       ]),
     );
 
     for (const [mixinName, mixin] of Object.entries(cmds)) {
       describe(mixinName, function () {
-        /** @type {XCUITestDriver} */
+        /** @type {AbraXCUITestDriver} */
         let driver;
 
         before(function () {
-          driver = new XCUITestDriver();
+          driver = new AbraXCUITestDriver();
         });
 
         for (const propName of Object.getOwnPropertyNames(mixin).filter(

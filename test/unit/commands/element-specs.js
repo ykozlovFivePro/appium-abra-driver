@@ -4,7 +4,7 @@ import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import {createSandbox} from 'sinon';
 import sinonChai from 'sinon-chai';
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 
 chai.should();
 chai.use(chaiAsPromised).use(sinonChai);
@@ -13,14 +13,14 @@ describe('element commands', function () {
   /** @type {sinon.SinonSandbox} */
   let sandbox;
 
-  /** @type {XCUITestDriver} */
+  /** @type {AbraXCUITestDriver} */
   let driver;
 
-  /** @type {sinon.SinonStubbedMember<XCUITestDriver['proxyCommand']>} */
+  /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['proxyCommand']>} */
   let proxyStub;
 
   before(function () {
-    driver = new XCUITestDriver();
+    driver = new AbraXCUITestDriver();
   });
 
   beforeEach(function () {
@@ -134,15 +134,15 @@ describe('element commands', function () {
 
   describe('getContentSize', function () {
     const el = {ELEMENT: '1234'};
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['getAttribute']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['getAttribute']>} */
     let getAttrStub;
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['getElementRect']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['getElementRect']>} */
     let getRectStub;
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['findElOrEls']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['findElOrEls']>} */
     let findElStub;
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['getSize']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['getSize']>} */
     let getSizeStub;
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['getLocationInView']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['getLocationInView']>} */
     let getLocationStub;
 
     beforeEach(function () {
@@ -154,7 +154,7 @@ describe('element commands', function () {
     });
 
     describe('web context', function () {
-      /** @type {XCUITestDriver['curContext']} */
+      /** @type {AbraXCUITestDriver['curContext']} */
       let oldContext;
 
       beforeEach(function () {
@@ -292,20 +292,20 @@ describe('element commands', function () {
   });
 
   describe('getLocation for web elements', function () {
-    /** @type {XCUITestDriver} */
+    /** @type {AbraXCUITestDriver} */
     let driver;
 
     const webEl = {ELEMENT: '5000', 'element-6066-11e4-a52e-4f735466cecf': '5000'};
     const fixtureXOffset = 100;
     const fixtureYOffset = 200;
 
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['execute']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['execute']>} */
     let executeStub;
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['executeAtom']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['executeAtom']>} */
     let atomStub;
 
     beforeEach(function () {
-      driver = new XCUITestDriver();
+      driver = new AbraXCUITestDriver();
       driver.curContext = 'fake web context';
       executeStub = sandbox.stub(driver, 'execute').resolves([fixtureXOffset, fixtureYOffset]);
       sandbox.stub(driver, 'getAtomsElement').resolvesArg(0);
@@ -338,20 +338,20 @@ describe('element commands', function () {
   });
 
   describe('getElementRect', function () {
-    /** @type {XCUITestDriver} */
+    /** @type {AbraXCUITestDriver} */
     let driver;
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['getNativeRect']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['getNativeRect']>} */
     let getNativeRectStub;
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['getLocationInView']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['getLocationInView']>} */
     let getLocationStub;
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['getSize']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['getSize']>} */
     let getSizeStub;
-    /** @type {sinon.SinonStubbedMember<XCUITestDriver['isWebContext']>} */
+    /** @type {sinon.SinonStubbedMember<AbraXCUITestDriver['isWebContext']>} */
     let isWebContextStub;
     const elem = {ELEMENT: '5000'};
 
     beforeEach(function () {
-      driver = new XCUITestDriver();
+      driver = new AbraXCUITestDriver();
       getNativeRectStub = sandbox
         .stub(driver, 'getNativeRect')
         .resolves({x: 0, y: 50, width: 100, height: 200});

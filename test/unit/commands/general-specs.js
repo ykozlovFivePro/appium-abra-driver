@@ -1,13 +1,13 @@
 import sinon from 'sinon';
 import _ from 'lodash';
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 import chai from 'chai';
 import sinonChai from 'sinon-chai';
 
 chai.use(sinonChai);
 
 describe('general commands', function () {
-  const driver = new XCUITestDriver();
+  const driver = new AbraXCUITestDriver();
   const proxyStub = sinon.stub(driver, 'proxyCommand');
 
   afterEach(function () {
@@ -142,7 +142,7 @@ describe('general commands', function () {
     };
 
     beforeEach(function () {
-      driver = new XCUITestDriver();
+      driver = new AbraXCUITestDriver();
       startStub = sinon.stub(driver, 'start');
     });
 

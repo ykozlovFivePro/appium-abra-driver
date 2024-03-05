@@ -15,7 +15,7 @@ async function pullFileAsString(driver, remotePath) {
   return Buffer.from(remoteData64, 'base64').toString();
 }
 
-describe('XCUITestDriver - file movement', function () {
+describe('AbraXCUITestDriver - file movement', function () {
   this.timeout(MOCHA_TIMEOUT);
 
   let driver;

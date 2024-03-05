@@ -1,5 +1,5 @@
 {
-  "name": "appium-xcuitest-driver",
+  "name": "appium-abra-driver",
   "description": "Appium driver for iOS using XCUITest for backend",
   "keywords": [
     "appium",
@@ -23,13 +23,13 @@
     "npm": ">=8"
   },
   "appium": {
-    "driverName": "xcuitest",
-    "automationName": "XCUITest",
+    "driverName": "abraxcuitest",
+    "automationName": "AbraXCUITest",
     "platformNames": [
       "iOS",
       "tvOS"
     ],
-    "mainClass": "XCUITestDriver",
+    "mainClass": "AbraXCUITestDriver",
     "scripts": {
       "build-wda": "./scripts/build-wda.js",
       "open-wda": "./scripts/open-wda.js"

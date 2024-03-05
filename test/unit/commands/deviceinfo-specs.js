@@ -1,13 +1,13 @@
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import sinon from 'sinon';
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 
 chai.should();
 chai.use(chaiAsPromised);
 
 describe('get deviceinfo commands', function () {
-  const driver = new XCUITestDriver();
+  const driver = new AbraXCUITestDriver();
   // give the driver a spy-able proxy object
   driver.wda = {jwproxy: {command: () => {}}};
   let proxyStub;

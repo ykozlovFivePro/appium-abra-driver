@@ -1,5 +1,5 @@
 import sinon from 'sinon';
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 
@@ -7,7 +7,7 @@ chai.should();
 chai.use(chaiAsPromised);
 
 describe('alert commands', function () {
-  let driver = new XCUITestDriver();
+  let driver = new AbraXCUITestDriver();
   let proxySpy = sinon.stub(driver, 'proxyCommand');
 
   afterEach(function () {

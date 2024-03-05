@@ -1,5 +1,5 @@
 import sinon from 'sinon';
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 import {services} from 'appium-ios-device';
 
 describe('location commands', function () {
@@ -14,7 +14,7 @@ describe('location commands', function () {
 
   describe('getGeoLocation', function () {
     beforeEach(function () {
-      driver = new XCUITestDriver();
+      driver = new AbraXCUITestDriver();
       proxySpy = sinon.stub(driver, 'proxyCommand');
     });
 
@@ -51,7 +51,7 @@ describe('location commands', function () {
     let setLocationStub;
 
     beforeEach(function () {
-      driver = new XCUITestDriver();
+      driver = new AbraXCUITestDriver();
       proxySpy = sinon.stub(driver, 'proxyCommand');
       startSimulateLocationServiceStub = sinon.stub(services, 'startSimulateLocationService');
       let mockService = {setLocation() {}, close() {}};
@@ -60,7 +60,7 @@ describe('location commands', function () {
     });
 
     afterEach(function () {
-      driver = new XCUITestDriver();
+      driver = new AbraXCUITestDriver();
       startSimulateLocationServiceStub.restore();
       setLocationStub.restore();
       proxySpy.reset();

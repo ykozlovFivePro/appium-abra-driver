@@ -415,7 +415,7 @@ Trigger a touch/fingerprint match or match failure
 
 `POST` **`/session/:sessionId/timeouts/async_script`**
 
-Alias for XCUITestDriver.scriptTimeoutW3C.
+Alias for AbraXCUITestDriver.scriptTimeoutW3C.
 
 #### Arguments
 

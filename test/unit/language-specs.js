@@ -1,7 +1,7 @@
 import sinon from 'sinon';
 import chai from 'chai';
 import _ from 'lodash';
-import XCUITestDriver from '../../lib/driver';
+import AbraXCUITestDriver from '../../lib/driver';
 
 chai.should();
 
@@ -47,7 +47,7 @@ describe('language and locale', function () {
         },
       };
       let desiredCapabilities =
-        /** @type {import('@appium/types').DriverOpts<import('../../lib/driver').XCUITestDriverConstraints>} */ ({
+        /** @type {import('@appium/types').DriverOpts<import('../../lib/driver').AbraXCUITestDriverConstraints>} */ ({
           platformName: 'iOS',
           platformVersion: '9.3',
           deviceName: 'iPhone 6',
@@ -57,7 +57,7 @@ describe('language and locale', function () {
           bundleId: BUNDLE_ID,
         });
 
-      let driver = new XCUITestDriver(desiredCapabilities);
+      let driver = new AbraXCUITestDriver(desiredCapabilities);
       let proxySpy = sinon.stub(driver, 'proxyCommand');
       driver.validateDesiredCaps(desiredCapabilities);
       await driver.startWdaSession(
@@ -103,7 +103,7 @@ describe('language and locale', function () {
       };
 
       const desiredCapabilities =
-        /** @type {import('@appium/types').DriverOpts<import('../../lib/driver').XCUITestDriverConstraints>} */ ({
+        /** @type {import('@appium/types').DriverOpts<import('../../lib/driver').AbraXCUITestDriverConstraints>} */ ({
           platformName: 'iOS',
           platformVersion: '9.3',
           deviceName: 'iPhone 6',
@@ -113,7 +113,7 @@ describe('language and locale', function () {
           bundleId: BUNDLE_ID,
           processArguments,
         });
-      let driver = new XCUITestDriver(desiredCapabilities);
+      let driver = new AbraXCUITestDriver(desiredCapabilities);
       let proxySpy = sinon.stub(driver, 'proxyCommand');
       driver.validateDesiredCaps(desiredCapabilities);
       await driver.startWdaSession(

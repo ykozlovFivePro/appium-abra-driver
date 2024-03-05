@@ -1,4 +1,4 @@
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 
@@ -38,7 +38,7 @@ describe('context', function () {
       ],
     };
     it('should call select page if a new page is introduced and that page is not blacklisted', async function () {
-      let driver = new XCUITestDriver();
+      let driver = new AbraXCUITestDriver();
       driver.curContext = '5191.5';
       driver.contexts = ['5191.5', '5191.3', '5191.4'];
       /** @type {undefined|(string|number)[]} */
@@ -57,7 +57,7 @@ describe('context', function () {
       /** @type {(string|number)[]} */ (selectPageArgs).should.eql(['5191', 1]);
     });
     it('should not call selectPage if a new page is introduced and that page is blacklisted', async function () {
-      let driver = new XCUITestDriver();
+      let driver = new AbraXCUITestDriver();
       driver.curContext = '5191.1';
       const testContexts = [
         ['5191.1', '5191.3', '5191.4'],

@@ -8,7 +8,7 @@ import {initSession, deleteSession, hasDefaultPrebuiltWDA, MOCHA_TIMEOUT} from '
 chai.should();
 chai.use(chaiAsPromised);
 
-describe('XCUITestDriver - alerts -', function () {
+describe('AbraXCUITestDriver - alerts -', function () {
   this.timeout(MOCHA_TIMEOUT);
 
   let driver;

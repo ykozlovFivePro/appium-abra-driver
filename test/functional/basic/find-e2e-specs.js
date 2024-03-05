@@ -24,7 +24,7 @@ const PV_ABOVE_13 = util.compareVersions(PLATFORM_VERSION, '>=', '13.0');
 const FIRST_ELEMENT = PV_ABOVE_13 ? 'Activity Indicators' : 'Action Sheets';
 const APP_TITLE = PV_ABOVE_13 ? 'UIKitCatalog' : 'UICatalog';
 
-describe('XCUITestDriver - find -', function () {
+describe('AbraXCUITestDriver - find -', function () {
   this.timeout(MOCHA_TIMEOUT);
 
   let driver;

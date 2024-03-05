@@ -1,9 +1,9 @@
 import sinon from 'sinon';
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 import Simctl from 'node-simctl';
 
 describe('pasteboard commands', function () {
-  const driver = new XCUITestDriver();
+  const driver = new AbraXCUITestDriver();
   let isSimulatorStub, setPasteboardStub, getPasteboardStub;
 
   beforeEach(function () {

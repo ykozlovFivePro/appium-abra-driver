@@ -1,5 +1,5 @@
 import sinon from 'sinon';
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 import {gesturesChainToString} from '../../../lib/commands/gesture';
 import _ from 'lodash';
 import sinonChai from 'sinon-chai';
@@ -8,7 +8,7 @@ import chai from 'chai';
 chai.use(sinonChai);
 
 describe('gesture commands', function () {
-  const driver = new XCUITestDriver();
+  const driver = new AbraXCUITestDriver();
   const proxySpy = sinon.stub(driver, 'proxyCommand');
 
   afterEach(function () {
@@ -373,7 +373,7 @@ describe('gesture commands', function () {
 });
 
 describe('W3C actions', function () {
-  const driver = new XCUITestDriver();
+  const driver = new AbraXCUITestDriver();
   it('releaseActions should exist and do nothing', async function () {
     await driver.releaseActions();
   });

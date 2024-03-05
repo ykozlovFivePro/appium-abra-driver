@@ -2,13 +2,13 @@ import {errors} from 'appium/driver';
 import sinon from 'sinon';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import XCUITestDriver from '../../../lib/driver';
+import AbraXCUITestDriver from '../../../lib/driver';
 
 chai.should();
 chai.use(chaiAsPromised);
 
 describe('proxy commands', function () {
-  let driver = new XCUITestDriver();
+  let driver = new AbraXCUITestDriver();
   // give the driver a spy-able proxy object
   driver.wda = {jwproxy: {command: () => {}}};
   const proxyStub = sinon.stub(driver.wda.jwproxy, 'command');
